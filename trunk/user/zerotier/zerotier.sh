@@ -66,7 +66,7 @@ start_instance() {
 
 	add_join $(nvram get zerotier_id)
 
-	$PROG $args $config_path >/dev/null 2>&1 &
+	$PROG -d >/dev/null 2>&1 &
 		
 	rules
 	
