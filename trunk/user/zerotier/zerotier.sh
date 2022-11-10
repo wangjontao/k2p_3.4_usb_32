@@ -5,6 +5,7 @@ PROG=/usr/bin/zerotier-one
 PROGCLI=/usr/bin/zerotier-cli
 PROGIDT=/usr/bin/zerotier-idtool
 config_path="/etc/storage/zerotier-one"
+PLANET="/etc/storage/zerotier-one/planet"
 start_instance() {
 	cfg="$1"
 	echo $cfg
@@ -13,6 +14,8 @@ start_instance() {
 	moonid="$(nvram get zerotier_moonid)"
 	secret="$(nvram get zerotier_secret)"
 	enablemoonserv="$(nvram get zerotiermoon_enable)"
+	planet="$(nvram get zerotier_planet)"
+	
 	if [ ! -d "$config_path" ]; then
 		mkdir -p $config_path
 	fi
@@ -36,6 +39,29 @@ start_instance() {
 		echo "$secret" >$config_path/identity.secret
 		$PROGIDT getpublic $config_path/identity.secret >$config_path/identity.public
 		#rm -f $config_path/identity.public
+	fi
+	
+	if [ -n "$planet"]; then
+		logger -t "zerotier" "找到planet,正在写入文件,请稍后..."
+		echo "$planet" >$config_path/planet.tmp
+		base64 -d $config_path/planet.tmp >$config_path/planet
+	fi
+	
+	if [ -f "$PLANET" ]; then
+		if [ ! -s "$PLANET" ]; then
+			logger -t "zerotier" "自定义planet文件为空,删除..."
+			rm -f $config_path/planet
+			rm -f $PLANET
+			nvram set zerotier_planet=""
+			nvram commit
+		else
+			logger -t "zerotier" "自定义planet文件不为空,创建..."
+			planet="$(base64 $PLANET)"
+			cp -f $PLANET $config_path/planet
+			rm -f $PLANET
+			nvram set zerotier_planet="$planet"
+			nvram commit
+		fi
 	fi
 
 	add_join $(nvram get zerotier_id)
@@ -79,15 +105,13 @@ rules() {
 	iptables -A FORWARD -i $zt0 -j ACCEPT
 	if [ $nat_enable -eq 1 ]; then
 		iptables -t nat -A POSTROUTING -o $zt0 -j MASQUERADE
-		while [ "$(ip route | grep "dev $zt0  proto" | awk '{print $1}')" = "" ]; do
-			sleep 1
-	    done
-		ip_segment=`ip route | grep "dev $zt0  proto" | awk '{print $1}'`
+		ip_segment="$(ip route | grep "dev $zt0 proto" | awk '{print $1}')"
 		iptables -t nat -A POSTROUTING -s $ip_segment -j MASQUERADE
 		zero_route "add"
 	fi
 
 }
+
 
 del_rules() {
 	zt0=$(ifconfig | grep zt | awk '{print $1}')
@@ -126,10 +150,14 @@ start_zero() {
 
 }
 kill_z() {
-	killall -9 zerotier-one
+	zerotier_process=$(pidof zerotier-one)
+	if [ -n "$zerotier_process" ]; then
+		logger -t "ZEROTIER" "关闭进程..."
+		killall zerotier-one >/dev/null 2>&1
+		kill -9 "$zerotier_process" >/dev/null 2>&1
+	fi
 }
 stop_zero() {
-	logger -t "zerotier" "关闭zerotier"
 	del_rules
 	zero_route "del"
 	kill_z
