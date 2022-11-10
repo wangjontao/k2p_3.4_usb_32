@@ -35,7 +35,7 @@ $j(document).ready(function() {
 
 </script>
 <script>
-<% zerotier_status(); %>
+
 <% login_state_hook(); %>
 
 var m_list = [<% get_nvram_list("ZeroConf", "ZeroList"); %>];
@@ -50,38 +50,28 @@ var isMenuopen = 0;
 function initial(){
 	show_banner(2);
 	show_menu(5,17,0);
-	showmenu();
-	fill_status(zerotier_status());
-	showMRULESList();
+showmenu();
+showMRULESList();
 	show_footer();
-}
 
+}
 function showmenu(){
 showhide_div('allink', found_app_aliddns());
-showhide_div('dtolink', found_app_ddnsto());
-showhide_div('wirlink', found_app_wireguard());
 }
 function applyRule(){
-	showLoading();
-	
-	document.form.action_mode.value = " Restart ";
-	document.form.current_page.value = "/Advanced_zerotier.asp";
-	document.form.next_page.value = "";
-	
-	document.form.submit();
+//	if(validForm()){
+		showLoading();
+		
+		document.form.action_mode.value = " Restart ";
+		document.form.current_page.value = "/Advanced_zerotier.asp";
+		document.form.next_page.value = "";
+		
+		document.form.submit();
+//	}
 }
 
 function done_validating(action){
 	refreshpage();
-}
-
-function fill_status(status_code){
-	var stext = "Unknown";
-	if (status_code == 0)
-		stext = "<#Stopped#>";
-	else if (status_code == 1)
-		stext = "<#Running#>";
-	$("zerotier_status").innerHTML = '<span class="label label-' + (status_code != 0 ? 'success' : 'warning') + '">' + stext + '</span>';
 }
 
 function markGroupRULES(o, c, b) {
@@ -200,21 +190,15 @@ function showMRULESList(){
 							<h2 class="box_head round_top"><#menu5_32#> - <#menu5_30#></h2>
 							<div class="round_bottom">
 							<div>
-							    <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+                            <ul class="nav nav-tabs" style="margin-bottom: 10px;">
 								<li id="allink" style="display:none">
-								    <a href="Advanced_aliddns.asp"><#menu5_23_1#></a>
-								</li>
-								<li id="dtolink" style="display:none">
-								    <a href="Advanced_ddnsto.asp"><#menu5_32_2#></a>
-								</li>
+                                    <a href="Advanced_aliddns.asp"><#menu5_23_1#></a>
+                                </li>
 								<li class="active">
-								    <a href="Advanced_zerotier.asp"><#menu5_32_1#></a>
-								</li>
-								<li id="wirlink" style="display:none">
-								    <a href="Advanced_wireguard.asp"><#menu5_35_1#></a>
-								</li>
-							    </ul>
-							</div>
+                                    <a href="Advanced_zerotier.asp"><#menu5_32_1#></a>
+                                </li>
+                            </ul>
+                        </div>
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
@@ -223,9 +207,6 @@ function showMRULESList(){
 									</div>
 
 									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
-									<tr> <th><#running_status#></th>
-                                            <td id="zerotier_status" colspan="3"></td>
-                                        </tr>
 										<tr>
 											<th width="30%" style="border-top: 0 none;">启用ZeroTier客户端</th>
 											<td style="border-top: 0 none;">
@@ -366,4 +347,3 @@ function showMRULESList(){
 </div>
 </body>
 </html>
-
