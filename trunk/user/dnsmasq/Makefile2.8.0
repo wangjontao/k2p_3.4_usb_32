@@ -1,5 +1,4 @@
-SRC_NAME=dnsmasq-2.87
-SRC_URL=https://thekelleys.org.uk/dnsmasq/$(SRC_NAME).tar.xz
+SRC_NAME=dnsmasq-2.80
 THISDIR = $(shell pwd)
 
 COPTS := -DHAVE_BROKEN_RTC -DNO_INOTIFY -DNO_AUTH -DNO_LOOP
@@ -13,19 +12,8 @@ ifneq ($(CONFIG_FIRMWARE_INCLUDE_IPSET),y)
 COPTS += -DNO_IPSET
 endif
 
-all: download_test extract_test
+all:
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME) COPTS="$(COPTS)"
-
-download_test:
-	( if [ ! -f $(SRC_NAME).tar.xz ]; then \
-		wget -t5 --timeout=20 --no-check-certificate -O $(SRC_NAME).tar.xz $(SRC_URL); \
-	fi )
-
-extract_test:
-	( if [ ! -d $(SRC_NAME) ]; then \
-		tar xf $(SRC_NAME).tar.xz; \
-		patch -d $(SRC_NAME) -p1 -i ../100-remove-old-runtime-kernel-support.patch; \
-	fi )
 
 clean:
 	$(MAKE) -C $(SRC_NAME) clean
