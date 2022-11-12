@@ -125,7 +125,7 @@ del_rules() {
 
 zero_route(){
 	rulesnum=`nvram get zero_staticnum_x`
-	for i in $(seq 1 $rulesnum);
+	for i in $(seq 1 $rulesnum)
 	do
 		j=`expr $i - 1`
 		route_enable=`nvram get zero_enable_x$j`
