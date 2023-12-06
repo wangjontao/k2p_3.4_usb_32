@@ -29,7 +29,6 @@ $j(document).ready(function() {
 
 	init_itoggle('zerotier_enable');
 	init_itoggle('zerotier_nat');
-	init_itoggle('zerotiermoon_enable');
 
 });
 
@@ -266,36 +265,7 @@ function showMRULESList(){
 												</div>
 												 允许Zerotier的拨入客户端访问路由器LAN资源（需要在 Zerotier管理页面设定到LAN网段的路由表）
 											</td>
-
 										</tr>
-										
-<tr>
-											<th width="30%" style="border-top: 0 none;">启用ZeroTier Moon服务器</th>
-											<td style="border-top: 0 none;">
-													<div class="main_itoggle">
-													<div id="zerotiermoon_enable_on_of">
-														<input type="checkbox" id="zerotiermoon_enable_fake" <% nvram_match_x("", "zerotiermoon_enable", "1", "value=1 checked"); %><% nvram_match_x("", "zerotiermoon_enable", "0", "value=0"); %>  />
-													</div>
-												</div>
-												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="zerotiermoon_enable" id="zerotiermoon_enable_1" class="input" value="1" <% nvram_match_x("", "zerotiermoon_enable", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="zerotiermoon_enable" id="zerotiermoon_enable_0" class="input" value="0" <% nvram_match_x("", "zerotiermoon_enable", "0", "checked"); %> /><#checkbox_No#>
-												</div>
-											</td>
-
-										</tr>
-<tr><th>ZeroTier Moon服务器 IP or DomainName</th>
-				<td>
-					<input type="text" class="input" name="zerotiermoon_ip" id="zerotiermoon_ip" style="width: 200px" value="<% nvram_get_x("","zerotiermoon_ip"); %>" />
-					<br>如果没有填写，将使用Wan获得的IP（请注意为公网IP）；如果填写IP地址，将使用该IP（请注意为公网IP）；如果填写域名，将使用域名获得IP（请注意为公网IP）。
-				</td>
-			</tr>
-<tr><th>ZeroTier Moon服务器 ID</th>
-				<td>
-					<input type="text" class="input" name="zerotiermoon_id" id="zerotiermoon_id" style="width: 200px" value="<% nvram_get_x("","zerotiermoon_id"); %>" readonly />
-					<br>服务器启用后自动生成Moon服务器的ID，在加入Moon时请使用客户端zerotier-cli orbit <该ID> <该ID>。
-				</td>
-			</tr>
 										<tr>
 											<th>zerotier官网</th>
 											<td>
