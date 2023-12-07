@@ -60,6 +60,8 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_NPC/d' .config
+        sed -i '/CONFIG_FIRMWARE_WEBUI_HIDE_VPN/d' .config
+        
 
 
         ######################################################################
@@ -73,9 +75,10 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_XRAY=y" >> .config
-        #echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config 
+        echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config 
         echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=y" >> .config 
         ##softvpn
+        echo "CONFIG_FIRMWARE_WEBUI_HIDE_VPN=y" >> .config  #隐藏vpn菜单
         echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=y" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT=y" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD=y" >> .config
