@@ -1,9 +1,9 @@
 THISDIR = $(shell pwd)
 
-SRC_VER = v4.38-9761
+SRC_VER = v4.29-9680
 SRC_BRANCH = rtm
 
-SRC_NAME = softether-src-$(SRC_VER)-$(SRC_BRANCH)
+SRC_NAME = SoftEtherVPN_Stable-$(SRC_VER)-$(SRC_BRANCH)
 SRC_URL = https://github.com/fightroad/SoftEtherVPN_Stable/releases/download/$(SRC_VER)-$(SRC_BRANCH)/$(SRC_NAME).tar.gz
 
 HAMCORE_DIR = $(SRC_VER)/src/bin/BuiltHamcoreFiles/unix
