@@ -1,4 +1,4 @@
-SRC_NAME = ZeroTierOne-1.10.2
+SRC_NAME = ZeroTierOne-1.10.6
 THISDIR = $(shell pwd)
 FLAGS := DEFS=""
 CFLAGS := -Os -ffunction-sections -fdata-sections
@@ -15,6 +15,7 @@ extract_test:
 		patch -d $(SRC_NAME) -p1 -i ../0006-gcc10.patch ; \
 		patch -d $(SRC_NAME) -p1 -i ../0007-add-cerrno-header-for-str-errno.patch ; \
 		patch -d $(SRC_NAME) -p1 -i ../0009-fix-set-mac-and-change-confpath.patch ; \
+		patch -d $(SRC_NAME) -p1 -i ../0010-fix-inja-std-round.patch ; \
 	 fi ;
 
 config_test:
