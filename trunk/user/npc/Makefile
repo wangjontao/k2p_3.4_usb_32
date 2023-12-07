@@ -1,6 +1,6 @@
 THISDIR := $(shell pwd)
-NPC_VER := 0.26.10
-NPC__URL_BASE := https://github.com/ehang-io/nps/releases/download
+NPC_VER := 0.26.16.1
+NPC__URL_BASE := https://github.com/yisier/nps/releases/download
 
 NPC_NAME := linux_mipsle_client
 NPC_URL := $(NPC__URL_BASE)/v$(NPC_VER)/$(NPC_NAME).tar.gz
