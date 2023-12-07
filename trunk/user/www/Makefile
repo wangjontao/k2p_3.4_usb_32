@@ -235,10 +235,10 @@ endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_NVPPROXY),y)
 	rm -f $(INSTALLDIR)/www/Advanced_nvpproxy.asp
 endif
-#ifneq ($(CONFIG_FIRMWARE_INCLUDE_NPC),y)
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_NPC),y)
 	rm -f $(INSTALLDIR)/www/Advanced_npc.asp
 	rm -f $(INSTALLDIR)/www/Advanced_npc_log.asp
-#endif
+endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_DDNSTO),y)
 	rm -f $(INSTALLDIR)/www/Advanced_ddnsto.asp
 endif
