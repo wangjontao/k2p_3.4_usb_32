@@ -1,4 +1,5 @@
-代码基于vb1980，感谢v大持续为老旧的系统更新软件版本。我做了一些整合优化。
+# Padavan
+代码基于vb1980和keke，感谢v大持续为老旧的系统更新软件版本。我做了一些整合优化。
 
 固件默认wifi名称
  - 2.4G：机器名_mac地址最后四位，如K2P_9981
@@ -14,7 +15,7 @@ wifi密码
  - admin
  - admin
 
-一、ACTION一键自编译方法
+# 一、ACTION一键自编译方法
 
 1、fork我的代码，从已经有的workflow里复制一个模版
 
@@ -43,11 +44,11 @@ wifi密码
 ![6](https://github.com/fightroad/Padavan-KVR/assets/39027157/9ab4089e-0eab-4728-8cdf-3960e503f640)
 
 
-二、本地编译参照chongshengb的代码编译。增减插件修改 build_firmware_modify 脚本或直接修改template里面的机型配置。
+# 二、本地编译参照chongshengb的代码编译。增减插件修改 build_firmware_modify 脚本或直接修改template里面的机型配置。
 ![image](https://github.com/fightroad/Padavan-KVR/assets/39027157/94e9076a-965c-4632-8a59-896b7dadbd09)
 
 
-# Padavan
+# 固件简介
 基于hanwckf,chongshengB以及padavanonly的源码整合而来，支持7603/7615/7915的kvr  
 编译方法同其他Padavan源码，主要特点如下：  
 1.采用padavanonly源码的5.0.4.0无线驱动，支持kvr  
