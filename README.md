@@ -33,8 +33,6 @@ wifi密码
 
 ![配置1](https://github.com/fightroad/Padavan-KVR/assets/39027157/4bc31b0d-a1c8-4ed9-8ff7-f6babb060ba5)
 
-![配置2](https://github.com/fightroad/Padavan-KVR/assets/39027157/617d506c-3cf5-4e03-a5a9-da810ddd4240)
-
 
 4、开始编译，获取编译后的固件
 
