@@ -43,7 +43,7 @@ wifi密码
 ![6](https://github.com/fightroad/Padavan-KVR/assets/39027157/9ab4089e-0eab-4728-8cdf-3960e503f640)
 
 
-二、本地编译参照chongshengb的代码编译。增减插件修改 build_firmware_modify 脚本
+二、本地编译参照chongshengb的代码编译。增减插件修改 build_firmware_modify 脚本或直接修改template里面的机型配置。
 ![image](https://github.com/fightroad/Padavan-KVR/assets/39027157/94e9076a-965c-4632-8a59-896b7dadbd09)
 
 
