@@ -78,11 +78,11 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_FRPC=y" >> .config  #frpc
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #aliddns
         ##科学上网##
-        #echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config
-        #echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_XRAY=y" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config 
-        #echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=y" >> .config 
+        echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=y" >> .config 
         ##vpn
         #echo  "CONFIG_FIRMWARE_INCLUDE_OPENVPN=y" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=y" >> .config
