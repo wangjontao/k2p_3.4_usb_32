@@ -29,7 +29,6 @@ $j(document).ready(function() {
 
 	init_itoggle('zerotier_enable');
 	init_itoggle('zerotier_nat');
-	init_itoggle('zerotiermoon_enable');
 
 });
 
@@ -219,6 +218,7 @@ function showMRULESList(){
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
 									<p>Zerotier是一个开源，跨平台，而且适合内网穿透互联的傻瓜配置虚拟 VPN LAN<br>
+									<a href="https://my.zerotier.com/network" target="_blank">Zerotier官网</a>
 									</p>
 									</div>
 
@@ -242,12 +242,12 @@ function showMRULESList(){
 
 										</tr>
 										
-<tr><th>ZeroTier World Network ID</th>
+<tr><th>ZeroTier Network ID</th>
 				<td>
 					<input type="text" class="input" name="zerotier_id" id="zerotier_id" style="width: 200px" value="<% nvram_get_x("","zerotier_id"); %>" />
 				</td>
 			</tr>
-<tr><th>ZeroTier Moon Network ID</th>
+<tr><th>ZeroTier Moon ID</th>
 				<td>
 					<input type="text" class="input" name="zerotier_moonid" id="zerotier_moonid" style="width: 200px" value="<% nvram_get_x("","zerotier_moonid"); %>" />
 				</td>
@@ -266,84 +266,7 @@ function showMRULESList(){
 												</div>
 												 允许Zerotier的拨入客户端访问路由器LAN资源（需要在 Zerotier管理页面设定到LAN网段的路由表）
 											</td>
-
 										</tr>
-										
-<tr>
-											<th width="30%" style="border-top: 0 none;">启用ZeroTier Moon服务器</th>
-											<td style="border-top: 0 none;">
-													<div class="main_itoggle">
-													<div id="zerotiermoon_enable_on_of">
-														<input type="checkbox" id="zerotiermoon_enable_fake" <% nvram_match_x("", "zerotiermoon_enable", "1", "value=1 checked"); %><% nvram_match_x("", "zerotiermoon_enable", "0", "value=0"); %>  />
-													</div>
-												</div>
-												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="zerotiermoon_enable" id="zerotiermoon_enable_1" class="input" value="1" <% nvram_match_x("", "zerotiermoon_enable", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="zerotiermoon_enable" id="zerotiermoon_enable_0" class="input" value="0" <% nvram_match_x("", "zerotiermoon_enable", "0", "checked"); %> /><#checkbox_No#>
-												</div>
-											</td>
-
-										</tr>
-<tr><th>ZeroTier Moon服务器 IP or DomainName</th>
-				<td>
-					<input type="text" class="input" name="zerotiermoon_ip" id="zerotiermoon_ip" style="width: 200px" value="<% nvram_get_x("","zerotiermoon_ip"); %>" />
-					<br>如果没有填写，将使用Wan获得的IP（请注意为公网IP）；如果填写IP地址，将使用该IP（请注意为公网IP）；如果填写域名，将使用域名获得IP（请注意为公网IP）。
-				</td>
-			</tr>
-<tr><th>ZeroTier Moon服务器 ID</th>
-				<td>
-					<input type="text" class="input" name="zerotiermoon_id" id="zerotiermoon_id" style="width: 200px" value="<% nvram_get_x("","zerotiermoon_id"); %>" readonly />
-					<br>服务器启用后自动生成Moon服务器的ID，在加入Moon时请使用客户端zerotier-cli orbit <该ID> <该ID>。
-				</td>
-			</tr>
-										<tr>
-											<th>zerotier官网</th>
-											<td>
-				<input type="button" class="btn btn-success" value="zerotier官网" onclick="window.open('https://my.zerotier.com/network')" size="0">
-				<br>点击跳转到Zerotier官网管理平台，新建或者管理网络，并允许客户端接入访问你私人网路（新接入的节点默认不允许访问）
-											</td>
-										</tr>
-									</table>
-<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
-	<tr> <th colspan="4">需要访问其它zerotier的内网LAN网段,IP和网关和zerotier后台对应即可(本机的LAN网段不用填进去)</th></tr>
-                                        <tr id="row_rules_caption">
-										 
-                                            <th width="10%">
-                                                启用 <i class="icon-circle-arrow-down"></i>
-                                            </th>
-											<th width="20%">
-                                                IP <i class="icon-circle-arrow-down"></i>
-                                            </th>
-											<th width="25%">
-                                                网关 <i class="icon-circle-arrow-down"></i>
-                                            </th>
-                                            <th width="5%">
-                                                <center><i class="icon-th-list"></i></center>
-                                            </th>
-                                        </tr>
-                                         <tr>
-                                         	<th>
-                                          	<select name="zero_enable_x_0" class="input" style="width: 100px">
-													<option value="1" <% nvram_match_x("","zero_enable_x_0", "0","selected"); %>>是</option>
-													<option value="0" <% nvram_match_x("","zero_enable_x_0", "0","selected"); %>>否</option>
-												</select>
-                                           </th>
-                                         <th><input type="text" maxlength="255" class="span12" style="width: 200px" size="200" name="zero_ip_x_0" value="<% nvram_get_x("", "zero_ip_x_0"); %>"/>
-                                            </th>
-                                         <th>
-                                                <input type="text" maxlength="255" class="span12" style="width: 200px" size="200" name="zero_route_x_0" value="<% nvram_get_x("", "zero_route_x_0"); %>" />
-                                            </th>
-                                         <th>
-                                                <button class="btn" style="max-width: 219px" type="submit" onclick="return markGroupRULES(this, 64, ' Add ');" name="markGroupRULES2" value="<#CTL_add#>" size="12"><i class="icon icon-plus"></i></button>
-                                            </th>
-                                            </td>
-                                        </tr>
-                                        <tr id="row_rules_body" >
-                                            <td colspan="4" style="border-top: 0 none; padding: 0px;">
-                                                <div id="MRULESList_Block"></div>
-                                            </td>
-                                        </tr>
-										</table>
 										<tr>
 											<td colspan="4" style="border-top: 0 none;">
 												<br />
@@ -366,4 +289,3 @@ function showMRULESList(){
 </div>
 </body>
 </html>
-
