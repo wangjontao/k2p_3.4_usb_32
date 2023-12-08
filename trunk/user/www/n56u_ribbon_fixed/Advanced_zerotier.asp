@@ -218,7 +218,7 @@ function showMRULESList(){
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
 									<p>Zerotier是一个开源，跨平台，而且适合内网穿透互联的傻瓜配置虚拟 VPN LAN<br>
-									<a href="https://my.zerotier.com/network" target="_blank">Zerotier官网</a>
+									<a href="https://my.zerotier.com/network" target="_blank" style="text-decoration: underline; font-weight: bold;">Zerotier官网设置入口</a>
 									</p>
 									</div>
 
