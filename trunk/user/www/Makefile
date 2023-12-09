@@ -9,7 +9,7 @@ include $(ROOTDIR)/user/shared/boards.mk
 PROJECT_HOME_URL="https:\/\/bitbucket.org\/padavan\/rt-n56u\/"
 PROJECT_HOME_URL_MOD="https:\/\/github.com\/hanwckf\/rt-n56u\/"
 
-LABEL_COPYRIGHT_TEXT='© 2011-2021 <a href="https:\/\/bitbucket.org\/padavan\/rt-n56u" target="blank">Padavan<\/a> \& N56U project community \& by <a href="https:\/\/github.com\/hanwckf\/rt-n56u" target="blank">hanwckf<\/a>'
+LABEL_COPYRIGHT_TEXT='© 2011-2023 <a href="https:\/\/bitbucket.org\/padavan\/rt-n56u" target="blank">Padavan<\/a> \& N56U project community \& by <a href="https:\/\/github.com\/hanwckf\/rt-n56u" target="blank">hanwckf<\/a>'
 
 BOARD_PATTERN=s/ZVMODELVZ/$(CONFIG_FIRMWARE_PRODUCT_ID)/g
 COPYR_PATTERN=s/ZVCOPYRVZ/$(LABEL_COPYRIGHT_TEXT)/g
@@ -200,13 +200,12 @@ ifneq ($(CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS),y)
 	rm -f $(INSTALLDIR)/www/Shadowsocks_log.asp
 endif
 
-ifneq ($(CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER),y)
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_OPENVPN),y)
 	rm -f $(INSTALLDIR)/www/vpnsrv.asp
-endif
-ifneq ($(CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT),y)
 	rm -f $(INSTALLDIR)/www/vpn_clients.asp
 	rm -f $(INSTALLDIR)/www/vpncli.asp
 endif
+
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_ADBYBY),y)
 	rm -f $(INSTALLDIR)/www/Advanced_adbyby.asp
 	rm -f $(INSTALLDIR)/www/Ad_action.asp
@@ -236,10 +235,10 @@ endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_NVPPROXY),y)
 	rm -f $(INSTALLDIR)/www/Advanced_nvpproxy.asp
 endif
-#ifneq ($(CONFIG_FIRMWARE_INCLUDE_NPC),y)
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_NPC),y)
 	rm -f $(INSTALLDIR)/www/Advanced_npc.asp
 	rm -f $(INSTALLDIR)/www/Advanced_npc_log.asp
-#endif
+endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_DDNSTO),y)
 	rm -f $(INSTALLDIR)/www/Advanced_ddnsto.asp
 endif
