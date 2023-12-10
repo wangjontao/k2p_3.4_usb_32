@@ -39,11 +39,16 @@ function initial(){
 	show_banner(2);
 	show_menu(5,18);
 	show_footer();
+	showmenu();
 
 fill_status(frpc_status());
 fill_status2(frps_status());
 	if (!login_safe())
 		textarea_scripts_enabled(0);
+}
+
+function showmenu(){
+showhide_div('npclink', found_app_npc());
 }
 
 function textarea_scripts_enabled(v){
