@@ -811,7 +811,7 @@ struct nvram_pair router_defaults[] = {
 	{ "zero_staticnum_x", "0" },
 #endif
 
-/*#if defined(APP_NPC)
+#if defined(APP_NPC)
 	{ "npc_enable", "0" },
 	{ "npc_server_addr", "127.0.0.1" },
 	{ "npc_server_port", "8024" },
@@ -820,7 +820,7 @@ struct nvram_pair router_defaults[] = {
 	{ "npc_compress", "1" },
 	{ "npc_crypt", "1" },
 	{ "npc_log_level", "3" },
-#endif*/
+#endif
 
 #if defined(APP_DDNSTO)
 	/*DDNSTO*/

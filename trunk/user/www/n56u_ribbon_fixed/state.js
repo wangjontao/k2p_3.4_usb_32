@@ -718,6 +718,12 @@ if (found_app_frp()) {
 	menuL2.push(mx);
 	tabMenuHash.put('18', mx2);
 }
+if (found_app_npc()) {
+	var mx = { "title": "<#menu5_25#>", "link": "Advanced_npc.asp", index: "18" };
+	var mx2 = [{ "title": "<#menu5_25_2#>", "link": "Advanced_npc.asp" }];
+	menuL2.push(mx);
+	tabMenuHash.put('18', mx2);
+}
 if (found_app_caddy()) {
 	var mx = { "title": "<#menu5_27#>", "link": "Advanced_caddy.asp", index: "19" };
 	var mx2 = [{ "title": "<#menu5_27_1#>", "link": "Advanced_caddy.asp" }];

@@ -532,7 +532,7 @@ void restart_frp(void){
 }
 #endif
 
-/*#if defined(APP_NPC)
+#if defined(APP_NPC)
 void stop_npc(void){
 	eval("/usr/bin/npc.sh","stop");
 }
@@ -545,7 +545,8 @@ void restart_npc(void){
 	stop_npc();
 	start_npc();
 }
-#endif*/
+#endif
+
 #if defined(APP_DDNSTO)
 void stop_ddnsto(void){
 	eval("/usr/bin/ddnsto.sh","stop");
@@ -905,9 +906,9 @@ stop_services(int stopall)
 #if defined(APP_FRP)
 	stop_frp();
 #endif
-/*#if defined(APP_NPC)
+#if defined(APP_NPC)
 	stop_npc();
-#endif*/
+#endif
 #if defined(APP_DDNSTO)
 	stop_ddnsto();
 #endif

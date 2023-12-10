@@ -577,11 +577,11 @@ void stop_frp(void);
 void start_frp(void);
 void restart_frp(void);
 #endif
-/*#if defined(APP_NPC)
+#if defined(APP_NPC)
 void stop_npc(void);
 void start_npc(void);
 void restart_npc(void);
-#endif*/
+#endif
 #if defined(APP_DDNSTO)
 void stop_ddnsto(void);
 void start_ddnsto(void);

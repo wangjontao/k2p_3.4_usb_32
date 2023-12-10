@@ -954,7 +954,7 @@
 	};
 #endif
 
-/*#if defined(APP_NPC)
+#if defined(APP_NPC)
 	struct variable variables_NpcConf[] = {
 			{"npc_enable", "", NULL, EVM_RESTART_NPC},
 			{"npc_server_addr", "", NULL, EVM_RESTART_NPC},
@@ -967,7 +967,7 @@
 			{"scripts.npc_script.sh", "File", NULL, EVM_RESTART_NPC},
 			{0,0,0,0}
 	};
-#endif*/
+#endif
 
 #if defined(APP_CADDY)
 	struct variable variables_CaddyConf[] = {
