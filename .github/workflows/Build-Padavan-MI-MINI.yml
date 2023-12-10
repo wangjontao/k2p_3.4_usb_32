@@ -74,15 +74,15 @@ jobs:
         ######################################################################
         ##内网穿透
         #echo "CONFIG_FIRMWARE_INCLUDE_NPC=y" >> .config 
-        #echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
-        #echo "CONFIG_FIRMWARE_INCLUDE_FRPC=y" >> .config  #frpc
-        #echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #aliddns
+        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
+        echo "CONFIG_FIRMWARE_INCLUDE_FRPC=y" >> .config  #frpc
+        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #aliddns
         ##科学上网##
         echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config #mini太小，内置不进
         #echo "CONFIG_FIRMWARE_INCLUDE_XRAY=y" >> .config #mini太小，内置不进
-        echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config #mini太小，内置不进
-        echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=y" >> .config 
+        #echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config #mini太小，内置不进
+        #echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=y" >> .config 
         ##vpn
         #echo  "CONFIG_FIRMWARE_INCLUDE_OPENVPN=y" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=y" >> .config
