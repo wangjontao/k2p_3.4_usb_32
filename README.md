@@ -46,6 +46,7 @@ wifi密码
 
 
 3、自定义自己的脚本，想要编译进去的软件直接按照编译脚本的模式增减。也可以直接修改template里面对应机型的配置。
+脚本里面按照提示，先写上删除配置项的语句，再写上要增加的插件的语句！！#为注释符号
 注意：action一键编译不会理会build_firmware_modify 脚本里面的配置。template里配置了和脚本里一样的配置会直接使用脚本里的！！！
 
 ![配置1](https://github.com/fightroad/Padavan-KVR/assets/39027157/4bc31b0d-a1c8-4ed9-8ff7-f6babb060ba5)
