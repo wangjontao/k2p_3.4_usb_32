@@ -32,7 +32,7 @@ wifi密码
 
 # 一、ACTION一键自编译方法
 
-1、fork我的代码，从已经有的workflow里复制一个模版
+1、fork我的代码，从已经有的workflow里复制一个模版。或者直接找一个模版进行修改。
 
 ![1](https://github.com/fightroad/Padavan-KVR/assets/39027157/611c13d7-0b32-4eb1-80d8-6bebaaf6913c)
 
