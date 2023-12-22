@@ -82,11 +82,7 @@ wifi密码
 
 以下附上他们四位的源码地址供参考  
 https://github.com/hanwckf/rt-n56u  
-https://github.com/chongshengB/rt-n56u  
-https://github.com/padavanonly/rt-n56u  
+https://github.com/chongshengB/rt-n56u 
+https://github.com/padavanonly/rt-n56u 
 https://github.com/immortalwrt/padavan
-
-已知问题： 
-最后编译出的固件对7612无线的支持已知是有问题的，包含7612的机型比如B70是无法正常工作的  
-已测试的机型为MSG1500-7615，JCG-Q20，CR660x  
 
