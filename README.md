@@ -23,6 +23,34 @@
 6、k2p mt7615 wifi芯片使用5.0.4.0驱动，支持打开kvr漫游。
 
 7、5.0驱动理论支持7603/7615/7915的kvr，自己测试。编译的时候自己检查下配置的是否5.0驱动！
+非这些wifi芯片的型号设置里也会有设置项，但是不起作用的！！
+
+zerotier 使用技巧：
+1、ap模式下如果想要其他zerotier端可以访问ap网段
+#在padavan开机脚本里开启ap模式下的ip转发功能，虚拟网段改成你自己实际的。
+sysctl -w net.ipv4.ip_forward=1
+iptables -t nat -A POSTROUTING -s 10.11.12.0/24 -j MASQUERADE
+
+2、解决当wan重拨号或其他原因，导致zerotier防火墙规则丢失，zerotier网络无法正常使用。可以在padavan设置  WAN 上行/下行启动后执行  加入下面的脚本。
+切记不要放防火墙重启后里，测试有重启进不去系统的可能！！
+if [ $1 == "up" ] ; then
+SleepTime=30
+logger -t "WAN状态改变" "【延时$SleepTime秒检测ZeroTier状态】"
+sleep $SleepTime
+KEYWORD="zte"
+RULE_EXIST=$(iptables -L -n -v | grep "$KEYWORD")
+NVRAM_ZEROTIER_ENABLE=$(nvram get zerotier_enable)
+if [ -z "$RULE_EXIST" ]; then
+    if [ "$NVRAM_ZEROTIER_ENABLE" = "1" ]; then
+        logger -t "检测结果" "【ZeroTier防火墙规则不存在，但服务已启用，需要重启服务！】"
+        zerotier.sh stop && zerotier.sh start
+    else
+        logger -t "检测结果" "【ZeroTier防火墙规则不存在，但服务未启用，不需要重启服务！】"
+    fi
+else
+    logger -t "检测结果" "【ZeroTier防火墙规则存在，不需要重启服务！】"
+fi
+fi
 
 固件默认wifi名称
  - 2.4G：机器名_mac地址最后四位，如K2P_9981
