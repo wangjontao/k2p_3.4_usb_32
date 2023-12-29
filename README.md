@@ -28,11 +28,13 @@
 zerotier 使用技巧：
 1、ap模式下如果想要其他zerotier端可以访问ap网段
 #在padavan开机脚本里开启ap模式下的ip转发功能，虚拟网段改成你自己实际的。
+
 sysctl -w net.ipv4.ip_forward=1
 iptables -t nat -A POSTROUTING -s 10.11.12.0/24 -j MASQUERADE
 
 2、解决当wan重拨号或其他原因，导致zerotier防火墙规则丢失，zerotier网络无法正常使用。可以在padavan设置  WAN 上行/下行启动后执行  加入下面的脚本。
 切记不要放防火墙重启后里，测试有重启进不去系统的可能！！
+
 if [ $1 == "up" ] ; then
 SleepTime=30
 logger -t "WAN状态改变" "【延时$SleepTime秒检测ZeroTier状态】"
