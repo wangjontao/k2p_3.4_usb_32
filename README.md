@@ -31,8 +31,6 @@ zerotier 使用技巧：
 #在padavan开机脚本里开启ap模式下的ip转发功能，虚拟网段改成你自己实际的。
 ```
 sysctl -w net.ipv4.ip_forward=1
-```
-```
 iptables -t nat -A POSTROUTING -s 10.11.12.0/24 -j MASQUERADE
 ```
 2、解决当wan重拨号或其他原因，导致zerotier防火墙规则丢失，zerotier网络无法正常使用。可以在padavan设置  WAN 上行/下行启动后执行  加入下面的脚本。
