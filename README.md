@@ -7,7 +7,8 @@
 如果是硬改过32M内存的机器，如k2p 记得修改下编译脚本增加 CONFIG_32M_REBOOT_FIXUP=y  否则会有软重启失灵问题！！
 
 编译了openvpn后，配置页面在网络地图-网络状态-更多设置的菜单里、不会出现在主页面的菜单中！
-frps界面开关需要的自己去把注释删掉就可以了！ https://github.com/fightroad/Padavan-KVR/commit/01dedd47494696e7a2c4fde2204e69a17f3f8942
+
+frps界面开关需要的自己去把那部分注释删掉就可以了！ https://github.com/fightroad/Padavan-KVR/commit/01dedd47494696e7a2c4fde2204e69a17f3f8942
 
 # 版本特点：
 
