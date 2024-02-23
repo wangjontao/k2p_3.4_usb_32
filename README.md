@@ -90,6 +90,9 @@ wifi密码
 
 ![配置1](https://github.com/fightroad/Padavan-KVR/assets/39027157/4bc31b0d-a1c8-4ed9-8ff7-f6babb060ba5)
 
+
+# 下图说的删除是指在那部分内容中增加删除配置的命令，不是把原来有的命令内容删掉！！！
+
 ![image](https://github.com/fightroad/Padavan-KVR/assets/39027157/aed2259d-125d-4f71-bf4c-9e4fef141656)
 
 
@@ -97,7 +100,6 @@ wifi密码
 
 ![5](https://github.com/fightroad/Padavan-KVR/assets/39027157/15c6aed1-41b9-41e2-b13b-a5fd6063cbd6)
 
-下图说的删除是指在那部分内容中增加删除配置的命令，不是把原来有的命令内容删掉！！！
 ![6](https://github.com/fightroad/Padavan-KVR/assets/39027157/9ab4089e-0eab-4728-8cdf-3960e503f640)
 
 
